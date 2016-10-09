@@ -1,7 +1,7 @@
 datastore:
   build: .
   volumes:
-    - /srv/data:/data
+    - /storage/htpc/data:/data
 sabnzbd:
   image: funkypenguin/sabnzbd
   volumes:
