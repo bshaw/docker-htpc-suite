@@ -12,6 +12,7 @@ sabnzbd:
     - 8080:8080
   links:
     - plex
+  restart: always
 couchpotato:
   image: funkypenguin/couchpotato
   volumes:
@@ -23,6 +24,7 @@ couchpotato:
   links:
     - sabnzbd
     - plex
+  restart: always
 plex:
   image: funkypenguin/plex
   volumes:
@@ -31,6 +33,7 @@ plex:
     - datastore
   ports:
     - 32400:32400
+  restart: always
 nzbdrone:
   image: funkypenguin/nzbdrone
   volumes:
@@ -42,3 +45,4 @@ nzbdrone:
   links:
     - sabnzbd
     - plex
+  restart: always
