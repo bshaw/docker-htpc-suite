@@ -5,7 +5,7 @@ datastore:
 sabnzbd:
   image: funkypenguin/sabnzbd
   volumes:
-    - sabnzbd:/config
+    - /storage/htpc/sabnzbd/config:/config
   volumes_from:
     - datastore
   ports:
@@ -16,7 +16,7 @@ sabnzbd:
 couchpotato:
   image: funkypenguin/couchpotato
   volumes:
-    - couchpotato:/config
+    - /storage/htpc/couchpotato/config:/config
   volumes_from:
     - datastore
   ports:
@@ -28,7 +28,7 @@ couchpotato:
 plex:
   image: funkypenguin/plex
   volumes:
-    - plex:/config
+    - /storage/htpc/plex/config:/config
   volumes_from:
     - datastore
   ports:
@@ -37,7 +37,7 @@ plex:
 nzbdrone:
   image: funkypenguin/nzbdrone
   volumes:
-    - nzbdrone:/config
+    - /storage/htpc/nzbdrone/config:/config
   volumes_from:
     - datastore
   ports:
