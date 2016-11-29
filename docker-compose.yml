@@ -2,47 +2,76 @@ datastore:
   build: .
   volumes:
     - /storage/htpc/data:/data
+nginx-proxy:
+  image: jwilder/nginx-proxy
+  volumes:
+    - /etc/nginx/conf.d
+    - /etc/nginx/vhost.d
+    - /usr/share/nginx/html
+    - /storage/htpc/nginx-proxy/certs:/etc/nginx/certs:ro
+    - /var/run/docker.sock:/tmp/docker.sock:ro
+  restart: always
+  ports:
+    - 80:80
+    - 443:443
+letsencrypt:
+  image:  jrcs/letsencrypt-nginx-proxy-companion
+  volumes:
+    - /storage/htpc/nginx-proxy/certs:/etc/nginx/certs:rw
+    - /var/run/docker.sock:/var/run/docker.sock:ro
+  volumes_from:
+    - nginx-proxy
 sabnzbd:
   image: funkypenguin/sabnzbd
   volumes:
     - /storage/htpc/sabnzbd/config:/config
   volumes_from:
     - datastore
-  ports:
-    - 8080:8080
   links:
     - plex
   restart: always
+  environment:
+    - VIRTUAL_HOST=sabnzbd.local
+    - VIRTUAL_PORT=8080
 couchpotato:
   image: funkypenguin/couchpotato
   volumes:
     - /storage/htpc/couchpotato/config:/config
   volumes_from:
     - datastore
-  ports:
-    - 5050:5050
   links:
     - sabnzbd
     - plex
   restart: always
+  environment:
+    - VIRTUAL_HOST=couchpotato.three-five.bshaw.io,couchpotato.local
+    - VIRTUAL_PORT=5050
+    - LETSENCRYPT_HOST=couchpotato.three-five.bshaw.io
+    - LETSENCRYPT_EMAIL=brian.b.shaw@gmail.com
 plex:
   image: funkypenguin/plex
   volumes:
     - /storage/htpc/plex/config:/config
   volumes_from:
     - datastore
-  ports:
-    - 32400:32400
   restart: always
+  environment:
+    - VIRTUAL_HOST=plex.three-five.bshaw.io,plex.local
+    - VIRTUAL_PORT=32400
+    - LETSENCRYPT_HOST=plex.three-five.bshaw.io
+    - LETSENCRYPT_EMAIL=brian.b.shaw@gmail.com
 nzbdrone:
   image: funkypenguin/nzbdrone
   volumes:
     - /storage/htpc/nzbdrone/config:/config
   volumes_from:
     - datastore
-  ports:
-    - 8989:8989
   links:
     - sabnzbd
     - plex
   restart: always
+  environment:
+    - VIRTUAL_HOST=sonarr.three-five.bshaw.io,sonarr.local
+    - VIRTUAL_PORT=8989
+    - LETSENCRYPT_HOST=sonarr.three-five.bshaw.io
+    - LETSENCRYPT_EMAIL=brian.b.shaw@gmail.com
