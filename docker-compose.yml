@@ -21,6 +21,7 @@ letsencrypt:
     - /var/run/docker.sock:/var/run/docker.sock:ro
   volumes_from:
     - nginx-proxy
+  restart: always
 sabnzbd:
   image: funkypenguin/sabnzbd
   volumes:
