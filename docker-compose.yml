@@ -15,7 +15,8 @@ nginx-proxy:
     - 80:80
     - 443:443
 letsencrypt:
-  image:  jrcs/letsencrypt-nginx-proxy-companion
+  # image:  jrcs/letsencrypt-nginx-proxy-companion
+  image: alastaircoote/docker-letsencrypt-nginx-proxy-companion
   volumes:
     - /storage/htpc/nginx-proxy/certs:/etc/nginx/certs:rw
     - /var/run/docker.sock:/var/run/docker.sock:ro
