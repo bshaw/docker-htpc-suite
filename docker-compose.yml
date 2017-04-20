@@ -12,6 +12,8 @@ sabnzbd:
     - plex
   restart: always
   environment:
+    - PUID=4242
+    - PGID=4242
     - VIRTUAL_HOST=sabnzbd.local
     - VIRTUAL_PORT=8080
 couchpotato:
