@@ -62,6 +62,10 @@ headphones:
   image: linuxserver/headphones
   volumes:
       - /storage/htpc/headphones/config:/config
+  volumes_from:
+      - datastore
+  links:
+      - sabnzbd
   restart: always
   environment:
       - PGID=4242
