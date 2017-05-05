@@ -3,19 +3,19 @@ A set of automated / manual scripts to control an integrated set of "dockerized"
 
 * [sabnzbd][1]
 * [couchpotato][2]
-* [nzbdrone][3]
-* [plex][4]
+* [headphones] [3]
+* [nzbdrone][4]
+* [plex][5]
 
 [1]: https://github.com/funkypenguin/sabnzbd
 [2]: https://github.com/funkypenguin/couchpotato
-[3]: https://github.com/funkypenguin/nzbdrone
-[4]: https://github.com/funkypenguin/plex
+[3]: https://github.com/linuxserver/docker-headphones
+[4]: https://github.com/funkypenguin/nzbdrone
+[5]: https://github.com/funkypenguin/plex
 
 # Quick Start (using docker-compose)
 
 On a docker-enabled, host, clone the repo
-
-    git clone https://github.com/funkypenguin/docker-htpc-suite.git
 
 Then change into the working directory:
 
@@ -36,6 +36,7 @@ You can now connect to your suite on the following URLs:
 
 * sabnzbd : http://localhost:8080
 * couchpotato : http://localhost:5050
+* headphones: http://localhost:8181
 * nzbdrone : http://localhost:8989
 * plex : http://localhost:32400/web/
 

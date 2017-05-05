@@ -58,3 +58,16 @@ nzbdrone:
     - VIRTUAL_PORT=8989
     - LETSENCRYPT_HOST=sonarr.three-five.bshaw.io
     - LETSENCRYPT_EMAIL=brian.b.shaw@gmail.com
+headphones:
+  image: linuxserver/headphones
+  volumes:
+      - /storage/htpc/headphones/config:/config
+  restart: always
+  environment:
+      - PGID=4242
+      - PUID=4242
+      - TZ=Europe/London
+      - VIRTUAL_HOST=headphones.three-five.bshaw.io,headphones.local
+      - VIRTUAL_PORT=8080
+      - LETSENCRYPT_HOST=headphones.three-five.bshaw.io
+      - LETSENCRYPT_EMAIL=brian.b.shaw@gmail.com
