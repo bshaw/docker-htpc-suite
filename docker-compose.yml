@@ -72,6 +72,6 @@ headphones:
       - PUID=4242
       - TZ=Europe/London
       - VIRTUAL_HOST=headphones.three-five.bshaw.io,headphones.local
-      - VIRTUAL_PORT=8080
+      - VIRTUAL_PORT=8181
       - LETSENCRYPT_HOST=headphones.three-five.bshaw.io
       - LETSENCRYPT_EMAIL=brian.b.shaw@gmail.com

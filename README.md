@@ -3,7 +3,7 @@ A set of automated / manual scripts to control an integrated set of "dockerized"
 
 * [sabnzbd][1]
 * [couchpotato][2]
-* [headphones] [3]
+* [headphones][3]
 * [nzbdrone][4]
 * [plex][5]
 
@@ -51,9 +51,3 @@ For example:
     ./scripts/plex.sh
     ./scripts/couchpotato.sh
     ./scripts/nzbdrone.sh
-
-# Planned Enhancements
-
-* Integration of container for rtorrent / rutorrent
-* Integration of container to run cron scripts against tools in suite
-* Integration of container for nginx configured to proxy each tool, so that only a single port needs to be exposed via docker for management
