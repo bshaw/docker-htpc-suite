@@ -27,9 +27,9 @@ couchpotato:
     - plex
   restart: always
   environment:
-    - VIRTUAL_HOST=couchpotato.three-five.bshaw.io,couchpotato.local
+    - VIRTUAL_HOST=couchpotato.bshaw.io,couchpotato.local
     - VIRTUAL_PORT=5050
-    - LETSENCRYPT_HOST=couchpotato.three-five.bshaw.io
+    - LETSENCRYPT_HOST=couchpotato.bshaw.io
     - LETSENCRYPT_EMAIL=brian.b.shaw@gmail.com
 plex:
   image: funkypenguin/plex
@@ -39,9 +39,9 @@ plex:
     - datastore
   restart: always
   environment:
-    - VIRTUAL_HOST=plex.three-five.bshaw.io,plex.local
+    - VIRTUAL_HOST=plex.bshaw.io,plex.local
     - VIRTUAL_PORT=32400
-    - LETSENCRYPT_HOST=plex.three-five.bshaw.io
+    - LETSENCRYPT_HOST=plex.bshaw.io
     - LETSENCRYPT_EMAIL=brian.b.shaw@gmail.com
 nzbdrone:
   image: funkypenguin/nzbdrone
@@ -54,9 +54,9 @@ nzbdrone:
     - plex
   restart: always
   environment:
-    - VIRTUAL_HOST=sonarr.three-five.bshaw.io,sonarr.local
+    - VIRTUAL_HOST=sonarr.bshaw.io,sonarr.local
     - VIRTUAL_PORT=8989
-    - LETSENCRYPT_HOST=sonarr.three-five.bshaw.io
+    - LETSENCRYPT_HOST=sonarr.bshaw.io
     - LETSENCRYPT_EMAIL=brian.b.shaw@gmail.com
 headphones:
   image: linuxserver/headphones
@@ -71,7 +71,7 @@ headphones:
       - PGID=4242
       - PUID=4242
       - TZ=Europe/London
-      - VIRTUAL_HOST=headphones.three-five.bshaw.io,headphones.local
+      - VIRTUAL_HOST=headphones.bshaw.io,headphones.local
       - VIRTUAL_PORT=8181
-      - LETSENCRYPT_HOST=headphones.three-five.bshaw.io
+      - LETSENCRYPT_HOST=headphones.bshaw.io
       - LETSENCRYPT_EMAIL=brian.b.shaw@gmail.com
