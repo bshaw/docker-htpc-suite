@@ -39,7 +39,7 @@ plex:
     - datastore
   restart: always
   environment:
-    - VIRTUAL_HOST=plex.bshaw.io,plex.local
+    - VIRTUAL_HOST=plex.bshaw.io,plex.direct,plex.local
     - VIRTUAL_PORT=32400
     - LETSENCRYPT_HOST=plex.bshaw.io
     - LETSENCRYPT_EMAIL=brian.b.shaw@gmail.com
